@@ -1,3 +1,0 @@
-# titan-tech
-
-ndjfhf

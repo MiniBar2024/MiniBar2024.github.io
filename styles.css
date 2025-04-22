@@ -100,6 +100,15 @@ body {
   text-align: center;
 }
 
+.subsection-title {
+  font-size: 1.5em;
+  color: #f1c40f;
+  margin: 40px 0 20px;
+  text-align: center;
+  border-top: 1px solid gold;
+  padding-top: 20px;
+}
+
 .section-text {
   font-size: 1.1em;
   line-height: 1.7;

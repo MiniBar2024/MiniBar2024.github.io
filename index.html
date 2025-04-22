@@ -76,6 +76,33 @@
   <footer class="footer">
     <p>&copy; 2025 Titan Tech. All rights reserved.</p>
   </footer>
+<script>
+  const code = ['a', 'd', 'm', 'i', 'n'];
+  let progress = 0;
 
+  document.querySelector('.secret-access').addEventListener('click', (e) => {
+    const char = e.target.innerText.toLowerCase();
+    if (char === code[progress]) {
+      progress++;
+      if (progress === code.length) {
+        window.location.href = 'admin.html';
+      }
+    } else {
+      progress = 0; // reset on wrong input
+    }
+  });
+
+  // Make each letter clickable
+  const phrase = "Unlock the future by pushing boundaries beyond imagination.";
+  const container = document.querySelector('.secret-access');
+  container.innerHTML = '';
+  for (let char of phrase) {
+    const span = document.createElement('span');
+    span.innerText = char;
+    span.style.cursor = 'pointer';
+    span.style.userSelect = 'none';
+    container.appendChild(span);
+  }
+</script>
 </body>
 </html>

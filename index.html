@@ -10,7 +10,7 @@
 <body>
 
   <header class="header">
-    <div class="logo">TITAN TECH</div>
+    <div class="logo" id="secret-logo">TITAN TECH</div>
     <nav class="nav">
       <a href="#about">About</a>
       <a href="#projects">Projects</a>
@@ -69,38 +69,17 @@
     <p>&copy; 2025 Titan Tech. All rights reserved.</p>
   </footer>
 
-  <!-- Universal Admin Letter Click Access Script -->
+  <!-- Secret Admin Trigger -->
   <script>
-    const target = ['a', 'd', 'm', 'i', 'n'];
-    let progress = 0;
+    let clickCount = 0;
+    const logo = document.getElementById('secret-logo');
 
-    function wrapLetters() {
-      const tags = document.body.querySelectorAll("h1, h2, h3, p, a, li, strong, span");
-      tags.forEach(tag => {
-        if (!tag.dataset.wrapped) {
-          const html = tag.innerText.split("").map(char => `<span class="clickable-letter">${char}</span>`).join("");
-          tag.innerHTML = html;
-          tag.dataset.wrapped = "true";
-        }
-      });
-    }
-
-    document.body.addEventListener("click", (e) => {
-      const clicked = e.target;
-      if (!clicked.classList.contains("clickable-letter")) return;
-
-      const letter = clicked.innerText.toLowerCase();
-      if (letter === target[progress]) {
-        progress++;
-        if (progress === target.length) {
-          window.location.href = 'admin.html';
-        }
-      } else {
-        progress = 0;
+    logo.addEventListener('click', () => {
+      clickCount++;
+      if (clickCount >= 5) {
+        window.location.href = 'admin.html';
       }
     });
-
-    wrapLetters();
   </script>
 
 </body>

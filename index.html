@@ -24,7 +24,6 @@
       <h1 class="glow">THE FUTURE OF MACHINES</h1>
       <p class="subtitle">Exo-suits. VTOL aircraft. Smart tech. Built by visionaries.</p>
       <a href="#projects" class="cta-button">Explore Projects</a>
-      <p class="secret-access">Unlock the future by pushing boundaries beyond imagination.</p>
     </div>
   </section>
 
@@ -70,16 +69,30 @@
     <p>&copy; 2025 Titan Tech. All rights reserved.</p>
   </footer>
 
-  <!-- Hidden Admin Panel Access Script -->
+  <!-- Universal Admin Letter Click Access Script -->
   <script>
-    const code = ['a', 'd', 'm', 'i', 'n'];
+    const target = ['a', 'd', 'm', 'i', 'n'];
     let progress = 0;
 
-    document.querySelector('.secret-access').addEventListener('click', (e) => {
-      const char = e.target.innerText.toLowerCase();
-      if (char === code[progress]) {
+    function wrapLetters() {
+      const tags = document.body.querySelectorAll("h1, h2, h3, p, a, li, strong, span");
+      tags.forEach(tag => {
+        if (!tag.dataset.wrapped) {
+          const html = tag.innerText.split("").map(char => `<span class="clickable-letter">${char}</span>`).join("");
+          tag.innerHTML = html;
+          tag.dataset.wrapped = "true";
+        }
+      });
+    }
+
+    document.body.addEventListener("click", (e) => {
+      const clicked = e.target;
+      if (!clicked.classList.contains("clickable-letter")) return;
+
+      const letter = clicked.innerText.toLowerCase();
+      if (letter === target[progress]) {
         progress++;
-        if (progress === code.length) {
+        if (progress === target.length) {
           window.location.href = 'admin.html';
         }
       } else {
@@ -87,17 +100,7 @@
       }
     });
 
-    // Render each character as a span
-    const phrase = "Unlock the future by pushing boundaries beyond imagination.";
-    const container = document.querySelector('.secret-access');
-    container.innerHTML = '';
-    for (let char of phrase) {
-      const span = document.createElement('span');
-      span.innerText = char;
-      span.style.cursor = 'pointer';
-      span.style.userSelect = 'none';
-      container.appendChild(span);
-    }
+    wrapLetters();
   </script>
 
 </body>

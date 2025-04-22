@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="0FXjQmmc8Q-ZGZmNBkYvAlI1KgP1ybUgDp7FDRb-Yyw" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Titan Tech</title>
   <link rel="stylesheet" href="styles.css"/>
@@ -25,6 +24,7 @@
       <h1 class="glow">THE FUTURE OF MACHINES</h1>
       <p class="subtitle">Exo-suits. VTOL aircraft. Smart tech. Built by visionaries.</p>
       <a href="#projects" class="cta-button">Explore Projects</a>
+      <p class="secret-access">Unlock the future by pushing boundaries beyond imagination.</p>
     </div>
   </section>
 
@@ -56,14 +56,7 @@
       <li><strong>Titan Suit:</strong> Lightweight neural-mapped training suit.</li>
       <li><strong>HUD-H:</strong> Helmet with eye tracking, vitals, and HUD overlay.</li>
       <li><strong>TitanOS Devices:</strong> Quantum-ready edge computers & drones.</li>
-    </ul>
-
-    <h3 class="subsection-title">TitanCore Tech Line (Powered by TitanOS)</h3>
-    <ul class="product-list">
-      <li><strong>TitanCore Phone:</strong> Secure, AI-optimized smartphone with modular hardware.</li>
-      <li><strong>TitanCore Tablet:</strong> Ultra-thin smart tablet with TitanOS multitasking engine.</li>
-      <li><strong>TitanCore Laptop:</strong> High-performance quantum-ready notebook for developers and engineers.</li>
-      <li><strong>TitanCore Drone:</strong> Autonomous drone system with object recognition and TitanOS navigation stack.</li>
+      <li><strong>TitanCore Tech Line:</strong> Phones, tablets, laptops, drones — all powered by TitanOS.</li>
     </ul>
   </section>
 
@@ -76,33 +69,36 @@
   <footer class="footer">
     <p>&copy; 2025 Titan Tech. All rights reserved.</p>
   </footer>
-<script>
-  const code = ['a', 'd', 'm', 'i', 'n'];
-  let progress = 0;
 
-  document.querySelector('.secret-access').addEventListener('click', (e) => {
-    const char = e.target.innerText.toLowerCase();
-    if (char === code[progress]) {
-      progress++;
-      if (progress === code.length) {
-        window.location.href = 'admin.html';
+  <!-- Hidden Admin Panel Access Script -->
+  <script>
+    const code = ['a', 'd', 'm', 'i', 'n'];
+    let progress = 0;
+
+    document.querySelector('.secret-access').addEventListener('click', (e) => {
+      const char = e.target.innerText.toLowerCase();
+      if (char === code[progress]) {
+        progress++;
+        if (progress === code.length) {
+          window.location.href = 'admin.html';
+        }
+      } else {
+        progress = 0;
       }
-    } else {
-      progress = 0; // reset on wrong input
-    }
-  });
+    });
 
-  // Make each letter clickable
-  const phrase = "Unlock the future by pushing boundaries beyond imagination.";
-  const container = document.querySelector('.secret-access');
-  container.innerHTML = '';
-  for (let char of phrase) {
-    const span = document.createElement('span');
-    span.innerText = char;
-    span.style.cursor = 'pointer';
-    span.style.userSelect = 'none';
-    container.appendChild(span);
-  }
-</script>
+    // Render each character as a span
+    const phrase = "Unlock the future by pushing boundaries beyond imagination.";
+    const container = document.querySelector('.secret-access');
+    container.innerHTML = '';
+    for (let char of phrase) {
+      const span = document.createElement('span');
+      span.innerText = char;
+      span.style.cursor = 'pointer';
+      span.style.userSelect = 'none';
+      container.appendChild(span);
+    }
+  </script>
+
 </body>
 </html>
